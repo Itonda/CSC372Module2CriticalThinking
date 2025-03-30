@@ -35,10 +35,15 @@ public class AgeCalculator extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String dob = dateOfBirth.getText();
                 try {
+                    // Clean and format the input
+                    dob = Utilities.formatDateOfBirth(dob);
+
+                    // Calculate the age
                     int age = Operations.calculateAge(dob);
                     ageResult.setText("Your age is: " + age + " years.");
                 } catch (Exception ex) {
-                    ageResult.setText("Invalid date format. Please use YYYY-MM-DD.");
+                    // Display the exception message
+                    ageResult.setText("Error: " + ex.getMessage());
                 }
             }
         });
@@ -68,7 +73,7 @@ public class AgeCalculator extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2; // Span across two columns for the intro label
-        gbc.anchor = GridBagConstraints.CENTER; // Center the label
+        gbc.anchor = GridBagConstraints.WEST; // Alight the label left
         mainPanel.add(introLabel, gbc);
         // Adding inputPanel to the main panel
         gbc.gridx = 0;
@@ -96,7 +101,7 @@ public class AgeCalculator extends JFrame {
         add(mainPanel);
         // Setting up the JFrame
         setTitle("Age Calculator");
-        setSize(500, 600);
+        setSize(700, 600);
         setMinimumSize(new Dimension(500, 600)); // Set minimum size for the window
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // Close the application when the window is closed
         setVisible(true); // Make the window visible
