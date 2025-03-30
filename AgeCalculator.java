@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+// Class to create a GUI for the program.
 public class AgeCalculator extends JFrame {
     final private Font mainFont = new Font("Verdana", Font.PLAIN, 16);
     JTextField dateOfBirth;
@@ -108,7 +108,7 @@ public class AgeCalculator extends JFrame {
 
         // Adding the main panel to the JFrame
         add(mainPanel);
-        
+
         // Setting up the JFrame
         setTitle("Age Calculator");
         setSize(700, 600);
@@ -116,7 +116,7 @@ public class AgeCalculator extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // Close the application when the window is closed
         setVisible(true); // Make the window visible
     }
-
+    // Main method to run the AgeCalculator GUI
     public static void main(String[] args) {
         AgeCalculator Frame = new AgeCalculator();
         Frame.run(); // Create an instance of AgeCalculator and run the GUI
