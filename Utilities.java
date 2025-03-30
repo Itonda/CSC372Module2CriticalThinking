@@ -13,7 +13,7 @@ public class Utilities {
         if (cleanedInput.length() == 8) {
             return cleanedInput.substring(0, 4) + "-" + cleanedInput.substring(4, 6) + "-" + cleanedInput.substring(6, 8);
         }
- 
+        
         return "";   
     }
 

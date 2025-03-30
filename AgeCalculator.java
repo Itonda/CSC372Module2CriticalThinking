@@ -17,6 +17,7 @@ public class AgeCalculator extends JFrame {
         
         dateOfBirth = new JTextField();
         dateOfBirth.setFont(mainFont);
+
         // Input label and text field for user to enter date of birth
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new GridLayout(2, 1, 5, 5));
@@ -27,6 +28,7 @@ public class AgeCalculator extends JFrame {
         // Result label to display the calculated age
         ageResult = new JLabel();
         ageResult.setFont(mainFont);
+
         // OK button to trigger age calculation
         JButton okButton = new JButton("OK");
         okButton.setFont(mainFont);
@@ -58,29 +60,34 @@ public class AgeCalculator extends JFrame {
                 ageResult.setText("");
             }
         });
+
         // Panel to display buttons
         JButton buttonPanel = new JButton();
         buttonPanel.setLayout(new GridLayout(1, 2, 5, 5));
         buttonPanel.setOpaque(false); 
         buttonPanel.add(okButton);
         buttonPanel.add(clearButton);
+
         // Main panel to hold all components
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5); // Add padding around components
+
         // Adding intoLabel to top of the main panel
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2; // Span across two columns for the intro label
         gbc.anchor = GridBagConstraints.WEST; // Alight the label left
         mainPanel.add(introLabel, gbc);
+
         // Adding inputPanel to the main panel
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         mainPanel.add(inputPanel, gbc);
+
         // Adding ageResult label to the main panel
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -89,6 +96,7 @@ public class AgeCalculator extends JFrame {
         gbc.weightx = 1.0; // Allow the label to expand horizontally
         gbc.weighty = 1.0; // Allow the label to expand vertically
         mainPanel.add(ageResult, gbc);
+
         // Adding buttonPanel to the main panel
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -97,8 +105,10 @@ public class AgeCalculator extends JFrame {
         gbc.weightx = 0;
         gbc.weighty = 0;
         mainPanel.add(buttonPanel, gbc);
+
         // Adding the main panel to the JFrame
         add(mainPanel);
+        
         // Setting up the JFrame
         setTitle("Age Calculator");
         setSize(700, 600);
