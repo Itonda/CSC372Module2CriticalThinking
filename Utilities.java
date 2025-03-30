@@ -35,20 +35,17 @@ public class Utilities {
 
         // Split the input into parts
         String[] parts = dob.split("-");
-        try {
-            int year = Integer.parseInt(parts[0]);
-            int month = Integer.parseInt(parts[1]);
-            int day = Integer.parseInt(parts[2]);
+        
+        int year = Integer.parseInt(parts[0]);
+        int month = Integer.parseInt(parts[1]);
+        int day = Integer.parseInt(parts[2]);
 
-            // Create a LocalDate object for the date of birth
-            LocalDate birthDate = LocalDate.of(year, month, day);
+        // Create a LocalDate object for the date of birth
+        LocalDate birthDate = LocalDate.of(year, month, day);
 
-            // Check if the date is in the future
-            if (birthDate.isAfter(LocalDate.now())) {
-                throw new Exception("Not born yet.");
-            }
-        } catch (NumberFormatException e) {
-            throw new Exception("Invalid date format. Please use numeric values for year, month, and day.");
-        }
+        // Check if the date is in the future
+        if (birthDate.isAfter(LocalDate.now())) {
+            throw new Exception("Not born yet.");
+        } 
     }
 }
