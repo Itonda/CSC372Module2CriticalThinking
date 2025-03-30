@@ -1,5 +1,6 @@
 import java.time.LocalDate;
-
+// Class containing utility methods for program.
+// This class contains methods for formatting and validating user input.
 public class Utilities {
     // Method to add dashes to user input for date of birth in the format YYYY-MM-DD.
     public static String formatDateOfBirth(String input) throws Exception {
@@ -13,7 +14,7 @@ public class Utilities {
         if (cleanedInput.length() == 8) {
             return cleanedInput.substring(0, 4) + "-" + cleanedInput.substring(4, 6) + "-" + cleanedInput.substring(6, 8);
         }
-        
+
         return "";   
     }
 
