@@ -7,7 +7,7 @@ public class AgeCalculator extends JFrame {
     final private Font mainFont = new Font("Verdana", Font.PLAIN, 16);
     JTextField dateOfBirth;
     JLabel ageResult;
-
+    // Constructs GUI for the Age Calculator application
     public void run() {
         JLabel introLabel = new JLabel("Enter date of birth (YYYY-MM-DD) and click OK to calculage age. ");
         introLabel.setFont(mainFont);
@@ -116,7 +116,7 @@ public class AgeCalculator extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // Close the application when the window is closed
         setVisible(true); // Make the window visible
     }
-    // Main method to run the AgeCalculator GUI
+    // Main method for program
     public static void main(String[] args) {
         AgeCalculator Frame = new AgeCalculator();
         Frame.run(); // Create an instance of AgeCalculator and run the GUI
