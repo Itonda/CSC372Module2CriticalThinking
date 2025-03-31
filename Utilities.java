@@ -33,19 +33,23 @@ public class Utilities {
             throw new Exception("Invalid date format. Please use YYYY-MM-DD.");
         }
 
-        // Split the input into parts
-        String[] parts = dob.split("-");
-        
-        int year = Integer.parseInt(parts[0]);
-        int month = Integer.parseInt(parts[1]);
-        int day = Integer.parseInt(parts[2]);
-
-        // Create a LocalDate object for the date of birth
-        LocalDate birthDate = LocalDate.of(year, month, day);
+        LocalDate birthDate = parseDate(dob);
 
         // Check if the date is in the future
         if (birthDate.isAfter(LocalDate.now())) {
             throw new Exception("Not born yet.");
         } 
+    }
+
+    // Method to parse a date string in the format YYYY-MM-DD and return a LocalDate object
+    public static LocalDate parseDate(String dob) {
+        // Split the input into parts
+        String[] parts = dob.split("-");
+        int year = Integer.parseInt(parts[0]);
+        int month = Integer.parseInt(parts[1]);
+        int day = Integer.parseInt(parts[2]);
+
+        // Create and return a LocalDate object
+        return LocalDate.of(year, month, day);
     }
 }

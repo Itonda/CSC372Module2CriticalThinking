@@ -6,14 +6,9 @@ public class Operations {
         // Validate the date using the Utilities class
         Utilities.validateDate(dob);
 
-        // Parse the input date string
-        String[] parts = dob.split("-");
-        int year = Integer.parseInt(parts[0]);
-        int month = Integer.parseInt(parts[1]);
-        int day = Integer.parseInt(parts[2]);
-
+       
         // Create a LocalDate object for the date of birth
-        LocalDate birthDate = LocalDate.of(year, month, day);
+        LocalDate birthDate = Utilities.parseDate(dob);
 
         // Get the current date
         LocalDate currentDate = LocalDate.now();
