@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 // Class to create a GUI for the program.
 public class AgeCalculator extends JFrame {
     final private Font mainFont = new Font("Verdana", Font.PLAIN, 16);
@@ -9,7 +8,7 @@ public class AgeCalculator extends JFrame {
     JLabel ageResult;
     // Constructs GUI for the Age Calculator application
     public void run() {
-        JLabel introLabel = new JLabel("Enter date of birth (YYYY-MM-DD) and click OK to calculage age. ");
+        JLabel introLabel = new JLabel("Enter date of birth (YYYY-MM-DD) and click OK to calculate age. ");
         introLabel.setFont(mainFont);
 
         JLabel enterDateLabel = new JLabel("Enter date of birth: ");
@@ -32,37 +31,35 @@ public class AgeCalculator extends JFrame {
         // OK button to trigger age calculation
         JButton okButton = new JButton("OK");
         okButton.setFont(mainFont);
-        okButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String dob = dateOfBirth.getText();
-                try {
-                    // Clean and format the input
-                    dob = Utilities.formatDateOfBirth(dob);
+        okButton.addActionListener(e -> {
 
-                    // Calculate the age
-                    int age = Operations.calculateAge(dob);
-                    ageResult.setText("Your age is: " + age + " years.");
-                } catch (Exception ex) {
-                    // Display the exception message
-                    ageResult.setText("Error: " + ex.getMessage());
-                }
+            String dob = dateOfBirth.getText();
+
+            try {
+                // Clean and format the input
+                dob = Utilities.formatDateOfBirth(dob);
+                // Calculate the age
+                int age = Operations.calculateAge(dob);
+
+                ageResult.setText("Your age is: " + age + " years.");
+
+            } catch (Exception ex) {
+                // Display the exception message
+                ageResult.setText("Error: " + ex.getMessage());
             }
         });
         
         // Clear button to reset the input and result fields
         JButton clearButton = new JButton("Clear");
         clearButton.setFont(mainFont);
-        clearButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dateOfBirth.setText("");
-                ageResult.setText("");
-            }
+        clearButton.addActionListener(e -> {
+            
+            dateOfBirth.setText("");
+            ageResult.setText("");
         });
 
         // Panel to display buttons
-        JButton buttonPanel = new JButton();
+        JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(1, 2, 5, 5));
         buttonPanel.setOpaque(false); 
         buttonPanel.add(okButton);
@@ -118,8 +115,10 @@ public class AgeCalculator extends JFrame {
     }
     // Main method for program
     public static void main(String[] args) {
-        AgeCalculator Frame = new AgeCalculator();
-        Frame.run(); // Create an instance of AgeCalculator and run the GUI
+        SwingUtilities.invokeLater(() -> {
+            // Create an instance of the AgeCalculator class
+            AgeCalculator frame = new AgeCalculator();
+            frame.run();
+        });
     }
 }
-
